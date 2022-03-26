@@ -2,7 +2,6 @@ const dbClient = require("../../utils/dbClient.js");
 
 async function addOneJoke(req, res) {
   const newJoke = req.body;
-  console.log(newJoke)
 
   try {
     const validatedJoke = {
@@ -38,5 +37,5 @@ async function randomJoke(req, res) {
 
 module.exports = {
   randomJoke,
-  addOneJoke
+  addOneJoke,
 };
