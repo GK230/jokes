@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddModal from "./modals/AddModal";
 import UpdateModal from "./modals/UpdateModal";
+import DeleteModal from "./modals/DeleteModal";
 import "./App.css";
 
 function App() {
@@ -30,7 +31,12 @@ function App() {
           joke={joke}
           show={show}
         ></UpdateModal>
-        <button>Delete joke</button>
+        <button onClick={() => setShow(true)}>Delete joke</button>
+        <DeleteModal
+          onClose={() => setShow(false)}
+          joke={joke}
+          show={show}
+        ></DeleteModal>
       </div>
     </div>
   );

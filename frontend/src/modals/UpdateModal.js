@@ -10,13 +10,12 @@ const UpdateModal = (props) => {
 
   function Submit(e) {
     e.preventDefault();
-    fetch("http://localhost:9000/jokes", {
+    fetch(`http://localhost:9000/jokes/${props.joke.id}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: props.joke.id,
         joke: updatedJoke,
       }),
     });
@@ -34,6 +33,8 @@ const UpdateModal = (props) => {
         </div>
         <div className="modal-body">
           <textarea
+            rows="5"
+            cols="40"
             placeholder={props.joke.joke}
             className="joke"
             onChange={handleChange}
