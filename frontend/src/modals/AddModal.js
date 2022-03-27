@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./modal.css";
 
 const AddModal = (props) => {
+  
   const [addedJoke, setAddedJoke] = useState("");
 
   if (!props.show) {

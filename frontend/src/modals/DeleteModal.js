@@ -8,7 +8,7 @@ const DeleteModal = (props) => {
     });
   }
 
-  if (!props.show) {
+  if (!props.show2) {
     return null;
   }
 

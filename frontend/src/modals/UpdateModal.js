@@ -21,7 +21,7 @@ const UpdateModal = (props) => {
     });
   }
 
-  if (!props.show) {
+  if (!props.show1) {
     return null;
   }
 

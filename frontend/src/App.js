@@ -7,6 +7,9 @@ import "./App.css";
 function App() {
   const [joke, setJoke] = useState({});
   const [show, setShow] = useState(false);
+  const [show1, setShow1] = useState(false);
+  const [show2, setShow2] = useState(false);
+
 
   function getRandomJoke() {
     fetch("http://localhost:9000/jokes")
@@ -21,21 +24,22 @@ function App() {
       <div className="joke-area">
         <p>{joke.joke}</p>
       </div>
+
       <div className="buttons">
         <button onClick={getRandomJoke}>View random joke</button>
         <button onClick={() => setShow(true)}>Add joke</button>
         <AddModal onClose={() => setShow(false)} show={show}></AddModal>
-        <button onClick={() => setShow(true)}>Update joke</button>
+        <button onClick={() => setShow1(true)}>Update joke</button>
         <UpdateModal
-          onClose={() => setShow(false)}
+          onClose={() => setShow1(false)}
           joke={joke}
-          show={show}
+          show1={show1}
         ></UpdateModal>
-        <button onClick={() => setShow(true)}>Delete joke</button>
+        <button onClick={() => setShow2(true)}>Delete joke</button>
         <DeleteModal
-          onClose={() => setShow(false)}
+          onClose={() => setShow2(false)}
           joke={joke}
-          show={show}
+          show2={show2}
         ></DeleteModal>
       </div>
     </div>
