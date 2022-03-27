@@ -1,19 +1,23 @@
 const dbClient = require("../../utils/dbClient.js");
 
+async function deleteJoke(req, res) {
+  const jokeId = Number(req.params.id);
+
+  const deletedJoke = await dbClient.funny.delete({
+    where: { id: jokeId },
+  });
+  res.json({ data: deletedJoke });
+}
+
 async function updateJoke(req, res) {
-  const updatedJoke = req.params.body;
+  const jokeId = Number(req.params.id);
+  const joke = req.body;
 
-  // const updateUser = await prisma.user.update({
-  //   where: {
-  //     email: "viola@prisma.io",
-  //   },
-  //   data: {
-  //     name: "Viola the Magnificent",
-  //   },
-  // });
-
-  const updatedJoke = await dbClient.funny.update({ where: { id: id } });
-  res.json({ data: joke });
+  const updatedJoke = await dbClient.funny.update({
+    where: { id: jokeId },
+    data: { joke: joke.joke },
+  });
+  res.json({ data: updatedJoke });
 }
 
 async function addOneJoke(req, res) {
@@ -42,10 +46,6 @@ async function randomJoke(req, res) {
       where: {
         id: rand,
       },
-      // select: {
-      //   id: true,
-      //   joke: true,
-      // },
     })
     .then((joke) => {
       res.json({ joke });
@@ -55,4 +55,6 @@ async function randomJoke(req, res) {
 module.exports = {
   randomJoke,
   addOneJoke,
+  updateJoke,
+  deleteJoke,
 };
