@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import "./modal.css";
 
-const Modal = (props) => {
-  const [addedJoke, setAddedJoke] = useState("");
+const UpdateModal = (props) => {
+  const [updatedJoke, setUpdatedJoke] = useState("");
 
   function handleChange(e) {
-    setAddedJoke(e.target.value);
+    setUpdatedJoke(e.target.value);
   }
 
-  function onSubmit(e) {
+  function Submit(e) {
     e.preventDefault();
     fetch("http://localhost:9000/jokes", {
-      method: "post",
+      method: "put",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        joke: addedJoke,
+        id: props.joke.id,
+        joke: updatedJoke,
       }),
     });
   }
@@ -29,22 +30,21 @@ const Modal = (props) => {
     <div className="modal">
       <div className="modal-content">
         <div className="modal-header">
-          <h4 className="modal-title">Add a joke</h4>
+          <h4 className="modal-title">Update this joke</h4>
         </div>
         <div className="modal-body">
           <textarea
-            placeholder="Enter your joke"
+            placeholder={props.joke.joke}
+            className="joke"
             onChange={handleChange}
           ></textarea>
         </div>
         <div className="modal-footer">
-          <button
-            type="submit"
-            // onClick={props.onClose}
-            className="close"
-            onClick={onSubmit}
-          >
-            Add
+          <button type="submit" className="close" onClick={Submit}>
+            Update
+          </button>
+          <button className="close" onClick={props.onClose}>
+            Close
           </button>
         </div>
       </div>
@@ -52,4 +52,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+export default UpdateModal;

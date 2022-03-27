@@ -13,7 +13,7 @@
   background-color: aliceblue;
   justify-self: center;
   width: 80vw;
-  height: 15vw;
+  height: 17vw;
   border-radius: 15px;
   text-align: center;
   display: grid;
@@ -22,7 +22,8 @@
 
 p {
   color: black;
-  font-size: 2em;
+  font-size: 1.5em;
+  padding: 1rem;
 }
 
 .buttons {
@@ -38,6 +39,7 @@ button {
   border-radius: 10px;
   padding: 0.5rem;
   cursor: pointer;
+  margin-right: 0.5rem;
 }
 
 
