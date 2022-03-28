@@ -16,8 +16,6 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "prisma": {
-      "seed": "node prisma/seed.js"
-    }
+    "prisma": "^3.11.1"
   }
 }

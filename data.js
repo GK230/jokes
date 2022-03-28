@@ -1,6 +1,7 @@
 const fs = require("fs");
 const parse = require("csv-parse");
 
+
 function readContent(callback) {
   fs.readFile("jokes.csv", (err, data) => {
     parse(data, {}, (err, jokes) => {
@@ -10,11 +11,11 @@ function readContent(callback) {
   });
 }
 
-let allJokes;
+let allJokes = [];
 readContent(function (err, jokes) {
-  allJokes = [...jokes]
+  return allJokes = [...jokes]
 });
-console.log(allJokes);
+console.log(allJokes)
 
 // console.log(jokes);
 

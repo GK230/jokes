@@ -8,4 +8,4 @@ const jokes = [
   "What do you call the security outside of a Samsung Store? Guardians of the Galaxy.",
 ];
 
-exports.jokes = jokes
+exports.jokes = jokes;
