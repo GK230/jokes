@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./modal.css";
 
 const AddModal = (props) => {
-  
   const [addedJoke, setAddedJoke] = useState("");
 
   if (!props.show) {
@@ -35,6 +34,7 @@ const AddModal = (props) => {
         <div className="modal-body">
           <textarea
             placeholder="Enter your joke"
+            type={"reset"}
             className="joke"
             onChange={handleChange}
           ></textarea>
